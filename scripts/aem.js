@@ -155,6 +155,12 @@ function customVideoEventHandling(eventStr) {
       // Get the parent element of the iframe
       var parentDiv = iframe.parentElement.parentElement;
 
+      // Create a line break element
+      var lineBreak = document.createElement('br');
+
+      // Append the line break after the label
+      parentDiv.appendChild(lineBreak);
+
       // Create a new label element
       var label = document.createElement('label');
       // Set the text content of the label
@@ -162,6 +168,12 @@ function customVideoEventHandling(eventStr) {
 
       // Append the label to the parent div
       parentDiv.appendChild(label);
+
+      // Create a line break element
+      var lineBreak = document.createElement('br');
+
+      // Append the line break after the label
+      parentDiv.appendChild(lineBreak);
 
       // Create a line break element
       var lineBreak = document.createElement('br');
