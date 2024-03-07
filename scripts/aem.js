@@ -162,6 +162,12 @@ function customVideoEventHandling(eventStr) {
 
       // Append the label to the parent div
       parentDiv.appendChild(label);
+
+      // Create a line break element
+      var lineBreak = document.createElement('br');
+
+      // Append the line break after the label
+      parentDiv.appendChild(lineBreak);
   }
 }
 
