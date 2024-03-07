@@ -170,6 +170,11 @@ function init() {
     switch(event.data) {
         case "video-config":
           console.log("Child frame, asking for video configuration");
+          var label = document.createElement('label');
+          // Set the text content of the label
+          label.textContent = 'event occurred';
+          // Append the label to the body
+          document.body.appendChild(label);
             // event.source.window.postMessage(JSON.stringify(videoConfig), '*');
             break;
         default:
