@@ -204,16 +204,16 @@ function init() {
     if(event.data.type === "embedded-video-player-event") {
         switch(event.data.name) {
             case 'video-playing': // `playing` event as fired from video player
-                customVideoEventHandling('[parent] [playing] ' + event.data.name + ' for ' + event.data.videoId + ' ' + Date.now());
+                customVideoEventHandling(event.data.name + ' for video asset id: ' + event.data.videoId);
                 break;
             case 'video-play': // `play` event as fired from video player
-                customVideoEventHandling('[parent] [play] ' + event.data.name + ' for ' + event.data.videoId + ' ' + Date.now());
+                customVideoEventHandling(event.data.name + ' for ' + event.data.videoId);
                 break;
             case 'video-ended': // `ended` event as fired from video player
-                customVideoEventHandling('[parent] [ended] ' + event.data.name + ' for ' + event.data.videoId + ' ' + Date.now());
+                customVideoEventHandling(event.data.name + ' for ' + event.data.videoId);
                 break;
             case 'video-loadedmetadata': // `loadedmetadata` event as fired from video player
-                customVideoEventHandling('[parent] [loadedmetadata] ' + event.data.name + ' for ' + event.data.videoId + ' ' + Date.now());
+                customVideoEventHandling(event.data.name + ' for ' + event.data.videoId);
                 break;
             default:
                 break;
