@@ -170,11 +170,25 @@ function init() {
     switch(event.data) {
         case "video-config":
           console.log("Child frame, asking for video configuration");
-          var label = document.createElement('label');
-          // Set the text content of the label
-          label.textContent = 'event occurred';
-          // Append the label to the body
-          document.body.appendChild(label);
+          // Find the iframe element
+          var iframe = document.querySelector('iframe');
+
+          // Check if the iframe element exists
+          if (iframe) {
+              // Get the parent element of the iframe
+              var parentDiv = iframe.parentElement;
+
+              // Create a new label element
+              var label = document.createElement('label');
+              // Set the text content of the label
+              label.textContent = 'event occurred';
+
+              // Append the label to the parent div
+              parentDiv.appendChild(label);
+          } else {
+              console.log('No iframe found on the page.');
+          }              
+
             // event.source.window.postMessage(JSON.stringify(videoConfig), '*');
             break;
         default:
