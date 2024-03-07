@@ -148,10 +148,26 @@ function setup() {
   }
 }
 
+function customVideoEventHandling(eventStr) {
+  var iframe = document.querySelector('iframe');
+
+  if (iframe) {
+      // Get the parent element of the iframe
+      var parentDiv = iframe.parentElement.parentElement;
+
+      // Create a new label element
+      var label = document.createElement('label');
+      // Set the text content of the label
+      label.textContent = eventStr;
+
+      // Append the label to the parent div
+      parentDiv.appendChild(label);
+  }
+}
+
 /**
  * Auto initializiation.
  */
-
 function init() {
   setup();
   sampleRUM('top');
@@ -167,27 +183,28 @@ function init() {
   });
 
   window.addEventListener("message", function (event) {
+    if(event.data.type === "embedded-video-player-event") {
+        switch(event.data.name) {
+            case 'video-playing': // `playing` event as fired from video player
+                customVideoEventHandling('[parent] [playing] ' + event.data.name + ' for ' + event.data.videoId + ' ' + Date.now());
+                break;
+            case 'video-play': // `play` event as fired from video player
+                customVideoEventHandling('[parent] [play] ' + event.data.name + ' for ' + event.data.videoId + ' ' + Date.now());
+                break;
+            case 'video-ended': // `ended` event as fired from video player
+                customVideoEventHandling('[parent] [ended] ' + event.data.name + ' for ' + event.data.videoId + ' ' + Date.now());
+                break;
+            case 'video-loadedmetadata': // `loadedmetadata` event as fired from video player
+                customVideoEventHandling('[parent] [loadedmetadata] ' + event.data.name + ' for ' + event.data.videoId + ' ' + Date.now());
+                break;
+            default:
+                break;
+        }
+    }
     switch(event.data) {
         case "video-config":
           console.log("Child frame, asking for video configuration");
-          // Find the iframe element
-          var iframe = document.querySelector('iframe');
-
-          // Check if the iframe element exists
-          if (iframe) {
-              // Get the parent element of the iframe
-              var parentDiv = iframe.parentElement.parentElement;
-
-              // Create a new label element
-              var label = document.createElement('label');
-              // Set the text content of the label
-              label.textContent = 'event occurred';
-
-              // Append the label to the parent div
-              parentDiv.appendChild(label);
-          } else {
-              console.log('No iframe found on the page.');
-          }              
+                      
 
             // event.source.window.postMessage(JSON.stringify(videoConfig), '*');
             break;
