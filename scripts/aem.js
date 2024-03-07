@@ -165,6 +165,17 @@ function init() {
   window.addEventListener('error', (event) => {
     sampleRUM('error', { source: event.filename, target: event.lineno });
   });
+
+  window.addEventListener("message", function (event) {
+    switch(event.data) {
+        case "video-config":
+            // event.source.window.postMessage(JSON.stringify(videoConfig), '*');
+            this.alert("video-config ask from child");
+            break;
+        default:
+            break;
+    }
+  });
 }
 
 /**
