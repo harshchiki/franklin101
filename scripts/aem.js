@@ -176,7 +176,7 @@ function init() {
           // Check if the iframe element exists
           if (iframe) {
               // Get the parent element of the iframe
-              var parentDiv = iframe.parentElement;
+              var parentDiv = iframe.parentElement.parentElement;
 
               // Create a new label element
               var label = document.createElement('label');
