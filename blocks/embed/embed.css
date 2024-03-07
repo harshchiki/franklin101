@@ -1,6 +1,6 @@
 main .embed {
     width: unset;
-    text-align: center;
+    text-align: left;
     max-width: 800px;
     margin: 32px auto;
 }
