@@ -189,7 +189,7 @@ function init() {
     };
 
     if(event.data && event.data === "video-config") {
-      customVideoEventHandling("Sending video configiration to the video player..");
+      customVideoEventHandling("Sending video configuration to the video player..");
       event.source.window.postMessage(JSON.stringify(videoConfig), '*');
     }
 
@@ -199,13 +199,13 @@ function init() {
                 customVideoEventHandling(event.data.name + ' for video asset id: ' + event.data.videoId);
                 break;
             case 'video-play': // `play` event as fired from video player
-                customVideoEventHandling(event.data.name + ' for ' + event.data.videoId);
+                customVideoEventHandling(event.data.name + ' for video asset id: ' + event.data.videoId);
                 break;
             case 'video-ended': // `ended` event as fired from video player
-                customVideoEventHandling(event.data.name + ' for ' + event.data.videoId);
+                customVideoEventHandling(event.data.name + ' for video asset id: ' + event.data.videoId);
                 break;
             case 'video-loadedmetadata': // `loadedmetadata` event as fired from video player
-                customVideoEventHandling(event.data.name + ' for ' + event.data.videoId);
+                customVideoEventHandling(event.data.name + ' for video asset id: ' + event.data.videoId);
                 break;
             default:
                 break;
