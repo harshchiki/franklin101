@@ -157,7 +157,7 @@ function customVideoEventHandling(eventStr) {
       
       var lineBreak = document.createElement('br');
       parentDiv.appendChild(lineBreak);
-      
+
       var label = document.createElement('label');
       label.textContent = eventStr;
       parentDiv.appendChild(label);
@@ -184,6 +184,15 @@ function init() {
   });
 
   window.addEventListener("message", function (event) {
+    var videoConfig = {
+        "autoplay": "any"
+    };
+
+    if(event.data && event.data === "video-config") {
+      customVideoEventHandling("Sending video configiration to the video player..");
+      event.source.window.postMessage(JSON.stringify(videoConfig), '*');
+    }
+
     if(event.data.type === "embedded-video-player-event") {
         switch(event.data.name) {
             case 'video-playing': // `playing` event as fired from video player
