@@ -169,8 +169,8 @@ function init() {
   window.addEventListener("message", function (event) {
     switch(event.data) {
         case "video-config":
+          console.log("Child frame, asking for video configuration");
             // event.source.window.postMessage(JSON.stringify(videoConfig), '*');
-            this.alert("video-config ask from child");
             break;
         default:
             break;
