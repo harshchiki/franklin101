@@ -183,12 +183,14 @@ function init() {
     sampleRUM('error', { source: event.filename, target: event.lineno });
   });
 
+  var videoConfigSent = false;
   window.addEventListener("message", function (event) {
     var videoConfig = {
         "autoplay": "any"
     };
 
-    if(event.data && event.data === "video-config") {
+    if(event.data && event.data === "video-config" && !videoConfigSent) {
+      videoConfigSent = true;
       customVideoEventHandling("Sending video configuration to the video player..");
       event.source.window.postMessage(JSON.stringify(videoConfig), '*');
     }
@@ -210,16 +212,6 @@ function init() {
             default:
                 break;
         }
-    }
-    switch(event.data) {
-        case "video-config":
-          console.log("Child frame, asking for video configuration");
-                      
-
-            // event.source.window.postMessage(JSON.stringify(videoConfig), '*');
-            break;
-        default:
-            break;
     }
   });
 }
