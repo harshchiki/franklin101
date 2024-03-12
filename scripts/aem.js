@@ -164,9 +164,9 @@ function customVideoEventHandling(eventStr) {
       containerDiv.style.display = 'flex'; // Use flexbox layout
       containerDiv.style.alignItems = 'center'; // Align items vertically
 
-      // Create pre element with fixed width and text wrapping
+      // Create pre element with minimum width and text wrapping
       var preElem = document.createElement('pre');
-      preElem.style.width = '600px'; // Set the desired fixed width
+      preElem.style.minWidth = '600px'; // Set the minimum width
       preElem.style.whiteSpace = 'pre-wrap'; // Allow text wrapping
       preElem.textContent = eventStr;
 
@@ -186,6 +186,7 @@ function customVideoEventHandling(eventStr) {
       parentDiv.appendChild(containerDiv);
   }
 }
+
 
 
 
