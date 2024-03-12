@@ -166,7 +166,7 @@ function customVideoEventHandling(eventStr) {
 
       // Create pre element with minimum width and text wrapping
       var preElem = document.createElement('pre');
-      preElem.style.minWidth = '600px'; // Set the minimum width
+      preElem.style.minWidth = '700px'; // Set the minimum width
       preElem.style.whiteSpace = 'pre-wrap'; // Allow text wrapping
       preElem.textContent = eventStr;
 
