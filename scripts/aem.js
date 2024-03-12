@@ -149,6 +149,7 @@ function setup() {
 }
 
 var ts = Date.now();
+
 function customVideoEventHandling(eventStr) {
   var iframe = document.querySelector('iframe');
 
@@ -157,26 +158,33 @@ function customVideoEventHandling(eventStr) {
       var parentDiv = iframe.parentElement.parentElement;
       var lineBreak = document.createElement('br');
       parentDiv.appendChild(lineBreak);
+
+      // Create container div
+      var containerDiv = document.createElement('div');
+      containerDiv.style.display = 'flex'; // Use flexbox layout
+      containerDiv.style.alignItems = 'center'; // Align items vertically
+
+      // Create pre element
       var preElem = document.createElement('pre');
-      var currTime = Date.now();
-      var elapsed = currTime - ts;
       preElem.textContent = eventStr;
-      
+
       // Create cross button
       var crossButton = document.createElement('button');
       crossButton.textContent = '✖'; // Unicode for "Cross" symbol
-      crossButton.style.marginLeft = '5px'; // Adjust spacing as needed
 
       // Add click event to remove pre tag and cross button
       crossButton.addEventListener('click', function() {
-        parentDiv.removeChild(preElem);
-        parentDiv.removeChild(crossButton);
+        parentDiv.removeChild(containerDiv);
       });
 
-      parentDiv.appendChild(preElem);
-      parentDiv.appendChild(crossButton);
+      // Append elements to container div
+      containerDiv.appendChild(preElem);
+      containerDiv.appendChild(crossButton);
+
+      parentDiv.appendChild(containerDiv);
   }
 }
+
 
 /**
  * Auto initializiation.
