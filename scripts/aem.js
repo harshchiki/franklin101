@@ -213,8 +213,8 @@ function init() {
         "autoplay": "any"
     };
 
-    if(event.data && event.data.name === "video-config" && !videoConfigSent) {
-      videoConfigSent = true;
+    if(event.data && event.data.name === "video-config") {
+      // videoConfigSent = true;
       customVideoEventHandling("Sending video configuration to the video player..");
       event.source.window.postMessage(JSON.stringify(videoConfig), '*');
     }
