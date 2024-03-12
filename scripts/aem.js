@@ -210,7 +210,7 @@ function init() {
   // var videoConfigSent = false;
   window.addEventListener("message", function (event) {
     var videoConfig = {
-        "autoplay": "any"
+        // "autoplay": "any"
     };
 
     if(event.data && event.data.name === "video-config") {
