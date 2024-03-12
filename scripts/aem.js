@@ -166,7 +166,7 @@ function customVideoEventHandling(eventStr) {
 
       // Create pre element with fixed width and text wrapping
       var preElem = document.createElement('pre');
-      preElem.style.width = '200px'; // Set the desired fixed width
+      preElem.style.width = '600px'; // Set the desired fixed width
       preElem.style.whiteSpace = 'pre-wrap'; // Allow text wrapping
       preElem.textContent = eventStr;
 
