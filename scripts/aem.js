@@ -162,7 +162,7 @@ function customVideoEventHandling(eventStr) {
       // label.textContent = eventStr;
       // parentDiv.appendChild(label);
       var preElem = document.createElement('pre');
-      preElem.textContent = Date.now() + eventStr;
+      preElem.textContent = Date.now() + "br />" + eventStr;
       parentDiv.appendChild(preElem);
       
       parentDiv.appendChild(lineBreak);
