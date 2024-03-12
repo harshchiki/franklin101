@@ -207,7 +207,7 @@ function init() {
     sampleRUM('error', { source: event.filename, target: event.lineno });
   });
 
-  var videoConfigSent = false;
+  // var videoConfigSent = false;
   window.addEventListener("message", function (event) {
     var videoConfig = {
         "autoplay": "any"
