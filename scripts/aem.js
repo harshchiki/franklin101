@@ -151,8 +151,7 @@ function setup() {
 var ts = Date.now();
 
 function customVideoEventHandling(eventStr, event) {
-  // var iframe = document.querySelector('iframe');
-  var iframe = event.source;
+  var iframe = document.querySelector('iframe');
 
   if (iframe) {
       // Get the parent element of the iframe
