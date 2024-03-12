@@ -200,19 +200,19 @@ function init() {
         switch(event.data.name) {
             case 'video-playing': // `playing` event as fired from video player
                 customVideoEventHandling('"' + event.data.name + '"' + ' for video asset id: ' + event.data.videoId);
-                customVideoEventHandling(event.data);
+                customVideoEventHandling(JSON.stringify(event.data, null, 2));
                 break;
             case 'video-play': // `play` event as fired from video player
                 customVideoEventHandling('"' + event.data.name + '"'  + ' for video asset id: ' + event.data.videoId);
-                customVideoEventHandling(event.data);
+                customVideoEventHandling(JSON.stringify(event.data, null, 2));
                 break;
             case 'video-ended': // `ended` event as fired from video player
                 customVideoEventHandling('"' + event.data.name + '"' + ' for video asset id: ' + event.data.videoId);
-                customVideoEventHandling(event.data);
+                customVideoEventHandling(JSON.stringify(event.data, null, 2));
                 break;
             case 'video-loadedmetadata': // `loadedmetadata` event as fired from video player
                 customVideoEventHandling('"' + event.data.name + '"'  + ' for video asset id: ' + event.data.videoId);
-                customVideoEventHandling(event.data);
+                customVideoEventHandling(JSON.stringify(event.data, null, 2));
                 break;
             default:
                 break;
