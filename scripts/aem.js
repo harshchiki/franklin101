@@ -196,7 +196,6 @@ function init() {
       videoConfigSent = true;
       customVideoEventHandling("Sending video configuration to the video player..");
       event.source.window.postMessage(JSON.stringify(videoConfig), '*');
-      customVideoEventHandling("--------------------------------------------------");
     }
 
     if(event.data.type === "embedded-video-player-event") {
