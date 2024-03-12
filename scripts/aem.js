@@ -158,9 +158,12 @@ function customVideoEventHandling(eventStr) {
       var lineBreak = document.createElement('br');
       parentDiv.appendChild(lineBreak);
 
-      var label = document.createElement('label');
-      label.textContent = eventStr;
-      parentDiv.appendChild(label);
+      // var label = document.createElement('label');
+      // label.textContent = eventStr;
+      // parentDiv.appendChild(label);
+      var preElem = document.createElement('pre');
+      preElem.textContent = eventStr;
+      parentDiv.appendChild(preElem);
       
       parentDiv.appendChild(lineBreak);
   }
@@ -199,19 +202,19 @@ function init() {
     if(event.data.type === "embedded-video-player-event") {
         switch(event.data.name) {
             case 'video-playing': // `playing` event as fired from video player
-                customVideoEventHandling('"' + event.data.name + '"' + ' for video asset id: ' + event.data.videoId);
+                // customVideoEventHandling('"' + event.data.name + '"' + ' for video asset id: ' + event.data.videoId);
                 customVideoEventHandling(JSON.stringify(event.data, null, 2));
                 break;
             case 'video-play': // `play` event as fired from video player
-                customVideoEventHandling('"' + event.data.name + '"'  + ' for video asset id: ' + event.data.videoId);
+                // customVideoEventHandling('"' + event.data.name + '"'  + ' for video asset id: ' + event.data.videoId);
                 customVideoEventHandling(JSON.stringify(event.data, null, 2));
                 break;
             case 'video-ended': // `ended` event as fired from video player
-                customVideoEventHandling('"' + event.data.name + '"' + ' for video asset id: ' + event.data.videoId);
+                // customVideoEventHandling('"' + event.data.name + '"' + ' for video asset id: ' + event.data.videoId);
                 customVideoEventHandling(JSON.stringify(event.data, null, 2));
                 break;
             case 'video-loadedmetadata': // `loadedmetadata` event as fired from video player
-                customVideoEventHandling('"' + event.data.name + '"'  + ' for video asset id: ' + event.data.videoId);
+                // customVideoEventHandling('"' + event.data.name + '"'  + ' for video asset id: ' + event.data.videoId);
                 customVideoEventHandling(JSON.stringify(event.data, null, 2));
                 break;
             default:
