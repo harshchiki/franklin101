@@ -165,7 +165,7 @@ function customVideoEventHandling(eventStr) {
       var preElem = document.createElement('pre');
       var currTime = Date.now();
       alert("ts = " + ts);
-      alert("cur = " + cur);
+      alert("cur = " + currTime);
       var elapsed = currTime - ts;
       alert("elapsed = " + elapsed);
       preElem.textContent = new Date(Date.now()).toISOString() + "\n" + "after " + elapsed + " ms\n" + eventStr;
