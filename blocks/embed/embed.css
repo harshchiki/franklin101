@@ -7,7 +7,7 @@ main .embed {
 
 main .embed>div {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 main .embed.embed-twitter .twitter-tweet-rendered {
