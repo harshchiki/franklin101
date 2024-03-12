@@ -155,24 +155,26 @@ function customVideoEventHandling(eventStr) {
   if (iframe) {
       // Get the parent element of the iframe
       var parentDiv = iframe.parentElement.parentElement;
-      
       var lineBreak = document.createElement('br');
       parentDiv.appendChild(lineBreak);
-
-      // var label = document.createElement('label');
-      // label.textContent = eventStr;
-      // parentDiv.appendChild(label);
       var preElem = document.createElement('pre');
       var currTime = Date.now();
       var elapsed = currTime - ts;
-      preElem.textContent = ""
-      // + new Date(Date.now()).toISOString() + "\n" 
-      // + "after " + elapsed + " ms" + "\n"
-      + eventStr;
-      ts = Date.now();
-      parentDiv.appendChild(preElem);
+      preElem.textContent = eventStr;
       
-      // parentDiv.appendChild(lineBreak);
+      // Create cross button
+      var crossButton = document.createElement('button');
+      crossButton.textContent = '✖'; // Unicode for "Cross" symbol
+      crossButton.style.marginLeft = '5px'; // Adjust spacing as needed
+
+      // Add click event to remove pre tag and cross button
+      crossButton.addEventListener('click', function() {
+        parentDiv.removeChild(preElem);
+        parentDiv.removeChild(crossButton);
+      });
+
+      parentDiv.appendChild(preElem);
+      parentDiv.appendChild(crossButton);
   }
 }
 
