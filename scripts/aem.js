@@ -165,7 +165,10 @@ function customVideoEventHandling(eventStr) {
       var preElem = document.createElement('pre');
       var currTime = Date.now();
       var elapsed = currTime - ts;
-      preElem.textContent = new Date(Date.now()).toISOString() + "\n" + "after " + elapsed + " ms\n" + eventStr;
+      preElem.textContent = ""
+      // + new Date(Date.now()).toISOString() + "\n" 
+      // + "after " + elapsed + " ms" 
+      + "\n" + eventStr;
       ts = Date.now();
       parentDiv.appendChild(preElem);
       
