@@ -164,11 +164,10 @@ function customVideoEventHandling(eventStr) {
       // parentDiv.appendChild(label);
       var preElem = document.createElement('pre');
       var currTime = Date.now();
-      alert("ts = " + ts);
-      alert("cur = " + currTime);
       var elapsed = currTime - ts;
-      alert("elapsed = " + elapsed);
-      preElem.textContent = new Date(Date.now()).toISOString() + "\n" + "after " + elapsed + " ms\n" + eventStr;
+      preElem.textContent = new Date(Date.now()).toISOString() + "\n" + "after " + elapsed + " ms\n"
+        + (eventStr.lastIndexOf("Sending video") != -1) ? " since page load " : " since previous video event "
+        + eventStr;
       ts = Date.now();
       parentDiv.appendChild(preElem);
       
