@@ -172,7 +172,7 @@ function customVideoEventHandling(eventStr) {
       ts = Date.now();
       parentDiv.appendChild(preElem);
       
-      parentDiv.appendChild(lineBreak);
+      // parentDiv.appendChild(lineBreak);
   }
 }
 
