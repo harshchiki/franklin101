@@ -216,7 +216,7 @@ function init() {
 
     if(event.data && event.data.name === "video-config") {
       // videoConfigSent = true;
-      customVideoEventHandling("Sending video configuration to the video player..");
+      customVideoEventHandling("Sending video configuration to the video player..", event);
       event.source.window.postMessage(JSON.stringify(videoConfig), '*');
     }
 
@@ -224,19 +224,19 @@ function init() {
         switch(event.data.name) {
             case 'video-playing': // `playing` event as fired from video player
                 // customVideoEventHandling('"' + event.data.name + '"' + ' for video asset id: ' + event.data.videoId);
-                customVideoEventHandling(JSON.stringify(event.data, null, 2));
+                customVideoEventHandling(JSON.stringify(event.data, null, 2), event);
                 break;
             case 'video-play': // `play` event as fired from video player
                 // customVideoEventHandling('"' + event.data.name + '"'  + ' for video asset id: ' + event.data.videoId);
-                customVideoEventHandling(JSON.stringify(event.data, null, 2));
+                customVideoEventHandling(JSON.stringify(event.data, null, 2), event);
                 break;
             case 'video-ended': // `ended` event as fired from video player
                 // customVideoEventHandling('"' + event.data.name + '"' + ' for video asset id: ' + event.data.videoId);
-                customVideoEventHandling(JSON.stringify(event.data, null, 2));
+                customVideoEventHandling(JSON.stringify(event.data, null, 2), event);
                 break;
             case 'video-loadedmetadata': // `loadedmetadata` event as fired from video player
                 // customVideoEventHandling('"' + event.data.name + '"'  + ' for video asset id: ' + event.data.videoId);
-                customVideoEventHandling(JSON.stringify(event.data, null, 2));
+                customVideoEventHandling(JSON.stringify(event.data, null, 2), event);
                 break;
             default:
                 break;
